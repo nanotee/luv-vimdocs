@@ -1703,7 +1703,8 @@ uv.socketpair([{socktype}, [{protocol}, [{flags1}, [{flags2}]]]])
 
                 Create a pair of connected sockets with the specified
                 properties. The resulting handles can be passed to
-                `uv.tcp_open`, used with `uv.spawn`, or for any other purpose.
+                |uv.tcp_open()|, used with |uv.spawn()|, or for any other
+                purpose.
 
                 When specified as a string, `socktype` must be one of
                 `"stream"`, `"dgram"`, `"raw"`, `"rdm"`, or `"seqpacket"`.
@@ -2068,7 +2069,7 @@ uv.tty_get_vterm_state()                              *uv.tty_get_vterm_state()*
                 Returns: `string` or `fail`
 
 ==============================================================================
-`uv_udp_t` — UDP handle                            *luv-udp-handle* *uv_udp_t*
+`uv_udp_t` — UDP handle                                  *luv-udp-handle* *uv_udp_t*
 
 > |uv_handle_t| functions also apply.
 
@@ -2734,8 +2735,8 @@ uv.fs_scandir_next({fs})                                  *uv.fs_scandir_next()*
                 are no more entries, `nil` is returned.
 
                 Note: This function only has a synchronous version. See
-                `uv.fs_opendir` and its related functions for an asynchronous
-                version.
+                |uv.fs_opendir()| and its related functions for an
+                asynchronous version.
 
                 Returns: `string, string` or `nil` or `fail`
 
@@ -2805,7 +2806,7 @@ uv.fs_lstat({path} [, {callback}])                               *uv.fs_lstat()*
 
                 Equivalent to `lstat(2)`.
 
-                Returns (sync version): `table` or `fail` (see `uv.fs_stat`)
+                Returns (sync version): `table` or `fail` (see |uv.fs_stat()|)
 
                 Returns (async version): `uv_fs_t userdata`
 
