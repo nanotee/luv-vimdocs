@@ -1,6 +1,7 @@
 *luv.txt* LibUV in Lua
 
-Based on commit af4a608 of the luv repository
+Based on commit af4a608 (18 Apr 2021) of the luv repository
+https://github.com/luvit/luv/tree/af4a608949713e0c75e2e5977210626515f1bc53
 
 ==============================================================================
 INTRODUCTION                                                  *luv* *luv-intro* *uv*
@@ -1013,7 +1014,7 @@ uv.poll_stop({poll})                                            *uv.poll_stop()*
                 Returns: `0` or `fail`
 
 ==============================================================================
-`uv_signal_t` — Signal handle                *luv-signal-handle* *uv_signal_t*
+`uv_signal_t` — Signal handle                      *luv-signal-handle* *uv_signal_t*
 
 > |uv_handle_t| functions also apply.
 
@@ -1289,7 +1290,7 @@ uv.process_get_pid({process})                             *uv.process_get_pid()*
                 Returns: `integer`
 
 ==============================================================================
-`uv_stream_t` — Stream handle                *luv-stream-handle* *uv_stream_t*
+`uv_stream_t` — Stream handle                      *luv-stream-handle* *uv_stream_t*
 
 > |uv_handle_t| functions also apply.
 
