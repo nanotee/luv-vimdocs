@@ -2,6 +2,7 @@
 
 Based on commit af4a608 of the luv repository
 
+==============================================================================
 INTRODUCTION                                                  *luv* *luv-intro* *uv*
 
 The luv (https://github.com/luvit/luv) project provides access to the
@@ -52,7 +53,7 @@ Functions vs Methods~
 
 In addition to having simple functions, luv provides an optional method-style
 API. For example, `uv.tcp_bind(server, host, port)` can alternatively be
-called as `server:bind(host, port)`. Note that the first argument `server`
+called as `server:bind(host, port)` . Note that the first argument `server`
 becomes the object and `tcp_` is removed from the function name. Method forms
 are documented below where they exist.
 
@@ -1198,7 +1199,7 @@ uv.spawn({path}, {options}, {on_exit})                              *uv.spawn()*
                       end)
                     end)
 <
-                                                             *luv.spawn-options*
+                                                              *uv.spawn-options*
                 The `options` table accepts the following fields:
 
                   - `options.args` - Command line arguments as a list of
@@ -1512,7 +1513,7 @@ uv.stream_get_write_queue_size()              *uv.stream_get_write_queue_size()*
                 Returns: `integer`
 
 ==============================================================================
-`uv_tcp_t` — TCP handle                            *luv-tcp-handle* *uv_tcp_t*
+`uv_tcp_t` — TCP handle                                  *luv-tcp-handle* *uv_tcp_t*
 
 > |uv_handle_t| and |uv_stream_t| functions also apply.
 
@@ -1885,7 +1886,7 @@ uv.pipe_pending_type({pipe})                            *uv.pipe_pending_type()*
 
                 First - call |uv.pipe_pending_count()|, if it's > 0 then
                 initialize a handle of the given type, returned by
-                `uv.pipe_pending_type()` and call `uv.accept(pipe, handle)`.
+                `uv.pipe_pending_type()` and call `uv.accept(pipe, handle)` .
 
                 Returns: `string`
 
@@ -2190,6 +2191,7 @@ uv.udp_getpeername({udp})                                 *uv.udp_getpeername()*
                 - `ip` : `string`
                 - `family` : `string`
                 - `port` : `integer`
+
                                                        *uv.udp_set_membership()*
 uv.udp_set_membership({udp}, {multicast_addr}, {interface_addr}, {membership})
 
@@ -2208,6 +2210,7 @@ uv.udp_set_membership({udp}, {multicast_addr}, {interface_addr}, {membership})
                 `"join"`.
 
                 Returns: `0` or `fail`
+
                                                 *uv.udp_set_source_membership()*
 uv.udp_set_source_membership({udp}, {multicast_addr}, {interface_addr}, {source_addr}, {membership})
 
@@ -2872,7 +2875,8 @@ uv.fs_ftruncate({fd}, {offset} [, {callback}])               *uv.fs_ftruncate()*
 
                 Returns (async version): `uv_fs_t userdata`
 
-uv.fs_sendfile({out_fd}, {in_fd}, {in_offset}, {size} [, {callback}]) *uv.fs_sendfile()*
+                                                              *uv.fs_sendfile()*
+uv.fs_sendfile({out_fd}, {in_fd}, {in_offset}, {size} [, {callback}])
 
                 Parameters:
                 - `out_fd`: `integer`
@@ -3571,7 +3575,7 @@ uv.uptime()                                                        *uv.uptime()*
 uv.print_all_handles()                                  *uv.print_all_handles()*
 
                 Prints all handles associated with the main loop to stderr.
-                The format is `[flags] handle-type handle-address`. Flags are
+                The format is `[flags] handle-type handle-address` . Flags are
                 `R` for referenced, `A` for active and `I` for internal.
 
                 Returns: Nothing.
@@ -3819,4 +3823,4 @@ uv.metrics_idle_time()                                  *uv.metrics_idle_time()*
 
                 Returns: `number`
 
- vim:tw=78:ts=8:ft=help:norl:
+vim:tw=78:ts=8:ft=help:norl:
