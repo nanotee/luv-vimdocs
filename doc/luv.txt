@@ -1,7 +1,7 @@
 *luv.txt* LibUV in Lua
 
-Based on commit af4a608 (18 Apr 2021) of the luv repository
-https://github.com/luvit/luv/tree/af4a608949713e0c75e2e5977210626515f1bc53
+Based on commit 727c6e4 (25 Jul 2021) of the luv repository
+https://github.com/luvit/luv/commit/727c6e45f7f6414a95cf7e63443d7aa42a4c9481
 
 ==============================================================================
 INTRODUCTION                                                  *luv* *luv-intro* *uv*
@@ -1457,6 +1457,24 @@ uv.try_write({stream}, {data})                                  *uv.try_write()*
 
                 Returns: `integer` or `fail`
 
+uv.try_write2({stream}, {data}, {send_handle})                 *uv.try_write2()*
+
+                > method form `stream:try_write2(data, send_handle)`
+
+                Parameters:
+                - `stream`: `userdata` for sub-type of |uv_stream_t|
+                - `data`: `buffer`
+                - `send_handle`: `userdata` for sub-type of |uv_stream_t|
+
+                Like |uv.write2()|, but with the properties of
+                |uv.try_write()|. Not supported on Windows, where it returns
+                `UV_EAGAIN`.
+
+                Will return number of bytes written (can be less than the
+                supplied buffer size).
+
+                Returns: `integer` or `fail`
+
 uv.is_readable({stream})                                      *uv.is_readable()*
 
                 > method form `stream:is_readable()`
@@ -2115,7 +2133,7 @@ uv.udp_get_send_queue_size()                      *uv.udp_get_send_queue_size()*
 
 uv.udp_get_send_queue_count()                    *uv.udp_get_send_queue_count()*
 
-                > method form `udp:get_send_count_size()`
+                > method form `udp:get_send_queue_count()`
 
                 Returns the handle's send queue count.
 
@@ -3159,6 +3177,8 @@ uv.fs_opendir({path} [, {callback} [, {entries}]])             *uv.fs_opendir()*
 
 uv.fs_readdir({dir} [, {callback}])                            *uv.fs_readdir()*
 
+                > method form `dir:readdir([callback])`
+
                 Parameters:
                 - `dir`: `uv_dir_t userdata`
                 - `callback`: `callable` (async version) or `nil` (sync
@@ -3180,6 +3200,8 @@ uv.fs_readdir({dir} [, {callback}])                            *uv.fs_readdir()*
                 Returns (async version): `uv_fs_t userdata`
 
 uv.fs_closedir({dir} [, {callback}])                          *uv.fs_closedir()*
+
+                > method form `dir:closedir([callback])`
 
                 Parameters:
                 - `dir`: `uv_dir_t userdata`
@@ -3804,6 +3826,20 @@ uv.random({len}, {flags} [, {callback}])                           *uv.random()*
                 Returns (sync version): `string` or `fail`
 
                 Returns (async version): `0` or `fail`
+
+uv.translate_sys_error({errcode})                     *uv.translate_sys_error()*
+
+                Parameters:
+                - `errcode`: `integer`
+
+                Returns the libuv error message and error name (both in string
+                form, see `err` and `name` in |luv-error-handling|) equivalent
+                to the given platform dependent error code: POSIX error codes
+                on Unix (the ones stored in errno), and Win32 error codes on
+                Windows (those returned by GetLastError() or
+                WSAGetLastError()).
+
+                Returns: `string, string` or `nil`
 
 ==============================================================================
 METRICS OPERATIONS                                      *luv-metrics-operations*
