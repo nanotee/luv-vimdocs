@@ -1,7 +1,7 @@
 *luv.txt* LibUV in Lua
 
-Based on commit 727c6e4 (25 Jul 2021) of the luv repository
-https://github.com/luvit/luv/commit/727c6e45f7f6414a95cf7e63443d7aa42a4c9481
+Based on commit a1210a5 (29 Oct 2021) of the luv repository
+https://github.com/luvit/luv/commit/a1210a539a3e3402bc5aa633a2c8d5980740c326
 
 ==============================================================================
 INTRODUCTION                                                  *luv* *luv-intro* *uv*
@@ -1645,7 +1645,7 @@ uv.tcp_getpeername({tcp})                                 *uv.tcp_getpeername()*
                 Parameters:
                 - `tcp`: `uv_tcp_t userdata`
 
-                Get the current address to which the handle is bound.
+                Get the address of the peer connected to the handle.
 
                 Returns: `table` or `fail`
                 - `ip` : `string`
@@ -1659,7 +1659,7 @@ uv.tcp_getsockname({tcp})                                 *uv.tcp_getsockname()*
                 Parameters:
                 - `tcp`: `uv_tcp_t userdata`
 
-                Get the address of the peer connected to the handle.
+                Get the current address to which the handle is bound.
 
                 Returns: `table` or `fail`
                 - `ip` : `string`
