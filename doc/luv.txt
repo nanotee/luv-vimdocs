@@ -1,7 +1,7 @@
 *luv.txt* LibUV in Lua
 
-Based on commit cdd3489 (8 Mar 2022) of the luv repository
-https://github.com/luvit/luv/commit/cdd34897cbf0d218b29c42800ba10ca42b873ed3
+Based on commit c51e705 (5 May 2022) of the luv repository
+https://github.com/luvit/luv/commit/c51e7052ec4f0a25058f70c1b4ee99dd36180e59
 
 ==============================================================================
 INTRODUCTION                                                  *luv* *luv-intro* *uv*
@@ -3163,7 +3163,7 @@ uv.fs_opendir({path} [, {callback} [, {entries}]])             *uv.fs_opendir()*
                 - `callback`: `callable` (async version) or `nil` (sync
                   version)
                   - `err`: `nil` or `string`
-                  - `dir`: `uv_dir_t userdata` or `nil`
+                  - `dir`: `luv_dir_t userdata` or `nil`
                 - `entries`: `integer` or `nil`
 
                 Opens path as a directory stream. Returns a handle that the
@@ -3171,7 +3171,7 @@ uv.fs_opendir({path} [, {callback} [, {entries}]])             *uv.fs_opendir()*
                 defines the maximum number of entries that should be returned
                 by each call to |uv.fs_readdir()|.
 
-                Returns (sync version): `uv_dir_t userdata` or `fail`
+                Returns (sync version): `luv_dir_t userdata` or `fail`
 
                 Returns (async version): `uv_fs_t userdata`
 
@@ -3180,13 +3180,13 @@ uv.fs_readdir({dir} [, {callback}])                            *uv.fs_readdir()*
                 > method form `dir:readdir([callback])`
 
                 Parameters:
-                - `dir`: `uv_dir_t userdata`
+                - `dir`: `luv_dir_t userdata`
                 - `callback`: `callable` (async version) or `nil` (sync
                   version)
                   - `err`: `nil` or `string`
                   - `entries`: `table` or `nil` (see below)
 
-                Iterates over the directory stream `uv_dir_t` returned by a
+                Iterates over the directory stream `luv_dir_t` returned by a
                 successful |uv.fs_opendir()| call. A table of data tables is
                 returned where the number of entries `n` is equal to or less
                 than the `entries` parameter used in the associated
@@ -3204,7 +3204,7 @@ uv.fs_closedir({dir} [, {callback}])                          *uv.fs_closedir()*
                 > method form `dir:closedir([callback])`
 
                 Parameters:
-                - `dir`: `uv_dir_t userdata`
+                - `dir`: `luv_dir_t userdata`
                 - `callback`: `callable` (async version) or `nil` (sync
                   version)
                   - `err`: `nil` or `string`
